@@ -13,6 +13,9 @@
 		C9CEA40B28EAB62700FADA23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9CEA40928EAB62700FADA23 /* Main.storyboard */; };
 		C9CEA40D28EAB62800FADA23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9CEA40C28EAB62800FADA23 /* Assets.xcassets */; };
 		C9CEA41028EAB62800FADA23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9CEA40E28EAB62800FADA23 /* LaunchScreen.storyboard */; };
+		C9E1DC7928ED4B9D000CFDC7 /* toy_drummer.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C9E1DC7828ED4B9D000CFDC7 /* toy_drummer.usdz */; };
+		C9E1DC7B28ED4BAC000CFDC7 /* toy_biplane.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C9E1DC7A28ED4BAC000CFDC7 /* toy_biplane.usdz */; };
+		C9E1DC7D28ED4BB7000CFDC7 /* AirForce.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C9E1DC7C28ED4BB7000CFDC7 /* AirForce.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		C9CEA40A28EAB62700FADA23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9CEA40C28EAB62800FADA23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9CEA40F28EAB62800FADA23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C9E1DC7828ED4B9D000CFDC7 /* toy_drummer.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_drummer.usdz; sourceTree = "<group>"; };
+		C9E1DC7A28ED4BAC000CFDC7 /* toy_biplane.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_biplane.usdz; sourceTree = "<group>"; };
+		C9E1DC7C28ED4BB7000CFDC7 /* AirForce.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = AirForce.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +61,7 @@
 		C9CEA40228EAB62700FADA23 /* AR Object Viewer */ = {
 			isa = PBXGroup;
 			children = (
+				C9E1DC7728ED4AC3000CFDC7 /* Models */,
 				C9CEA40328EAB62700FADA23 /* AppDelegate.swift */,
 				C9CEA40528EAB62700FADA23 /* ViewController.swift */,
 				C9CEA40728EAB62700FADA23 /* Experience.rcproject */,
@@ -63,6 +70,16 @@
 				C9CEA40E28EAB62800FADA23 /* LaunchScreen.storyboard */,
 			);
 			path = "AR Object Viewer";
+			sourceTree = "<group>";
+		};
+		C9E1DC7728ED4AC3000CFDC7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C9E1DC7828ED4B9D000CFDC7 /* toy_drummer.usdz */,
+				C9E1DC7A28ED4BAC000CFDC7 /* toy_biplane.usdz */,
+				C9E1DC7C28ED4BB7000CFDC7 /* AirForce.usdz */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,8 +141,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9CEA41028EAB62800FADA23 /* LaunchScreen.storyboard in Resources */,
+				C9E1DC7B28ED4BAC000CFDC7 /* toy_biplane.usdz in Resources */,
+				C9E1DC7D28ED4BB7000CFDC7 /* AirForce.usdz in Resources */,
 				C9CEA40D28EAB62800FADA23 /* Assets.xcassets in Resources */,
 				C9CEA40B28EAB62700FADA23 /* Main.storyboard in Resources */,
+				C9E1DC7928ED4B9D000CFDC7 /* toy_drummer.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

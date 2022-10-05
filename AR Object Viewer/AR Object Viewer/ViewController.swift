@@ -7,17 +7,24 @@
 
 import UIKit
 import RealityKit
+import Combine
 
 class ViewController: UIViewController {
     
     @IBOutlet var arView: ARView!
-    
+    var cancellable:AnyCancellable? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cube = ModelEntity(mesh: .generateBox(size: 0.1),materials: [SimpleMaterial(color: .red, isMetallic: true)])
         let anchor = AnchorEntity(world: [0,0,-0.5])
-        anchor.addChild(cube)
-        arView.scene.addAnchor(anchor)
+        
+        cancellable = Entity.loadAsync(named: "AirForce")
+            .sink { error in
+                print("Error:",error)
+            } receiveValue: { entity in
+                anchor.addChild(entity)
+                self.arView.scene.addAnchor(anchor)
+                self.cancellable?.cancel()
+            }
     }
 }
