@@ -19,18 +19,60 @@
                             <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSp-os-WrI">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </arView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQt-xf-MBH" customClass="MenuUIView" customModule="AR_Object_Viewer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="493" width="414" height="403"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.compact.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BNf-Ea-ED2">
+                                        <rect key="frame" x="176" y="1.5" width="62" height="38.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="62" id="0Z6-Dj-pBJ"/>
+                                            <constraint firstAttribute="height" constant="52" id="Ugq-BG-ZyY"/>
+                                        </constraints>
+                                    </imageView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pl1-wz-1tp">
+                                        <rect key="frame" x="0.0" y="67" width="414" height="200"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="GOT-VZ-Wfs"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WwK-dL-a7Y">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="pl1-wz-1tp" firstAttribute="leading" secondItem="eQt-xf-MBH" secondAttribute="leading" id="Fta-GW-REs"/>
+                                    <constraint firstAttribute="trailing" secondItem="pl1-wz-1tp" secondAttribute="trailing" id="OYq-Bi-A0T"/>
+                                    <constraint firstItem="BNf-Ea-ED2" firstAttribute="top" secondItem="eQt-xf-MBH" secondAttribute="top" constant="-5" id="RkQ-Mg-QUR"/>
+                                    <constraint firstItem="pl1-wz-1tp" firstAttribute="top" secondItem="BNf-Ea-ED2" secondAttribute="bottom" constant="20" id="S52-rB-3ki"/>
+                                    <constraint firstItem="BNf-Ea-ED2" firstAttribute="centerX" secondItem="eQt-xf-MBH" secondAttribute="centerX" id="hX2-5h-4Nq"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="te6-3A-7JU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="pSp-os-WrI" secondAttribute="bottom" id="8mg-j4-J7P"/>
+                            <constraint firstItem="eQt-xf-MBH" firstAttribute="trailing" secondItem="te6-3A-7JU" secondAttribute="trailing" id="DXq-TZ-dOC"/>
                             <constraint firstItem="pSp-os-WrI" firstAttribute="trailing" secondItem="te6-3A-7JU" secondAttribute="trailing" id="Dew-ij-Zka"/>
+                            <constraint firstItem="eQt-xf-MBH" firstAttribute="height" secondItem="KIu-QG-Uu5" secondAttribute="height" multiplier="0.45" id="NLA-6r-vgp"/>
+                            <constraint firstAttribute="bottom" secondItem="eQt-xf-MBH" secondAttribute="bottom" id="OPN-kH-pwo"/>
+                            <constraint firstItem="eQt-xf-MBH" firstAttribute="leading" secondItem="te6-3A-7JU" secondAttribute="leading" id="QLn-Hs-hrB"/>
                             <constraint firstItem="pSp-os-WrI" firstAttribute="top" secondItem="KIu-QG-Uu5" secondAttribute="top" id="TeA-J3-rxO"/>
                             <constraint firstItem="pSp-os-WrI" firstAttribute="leading" secondItem="te6-3A-7JU" secondAttribute="leading" id="crn-i1-aSi"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="arView" destination="pSp-os-WrI" id="7po-Ah-pwF"/>
+                        <outlet property="expandAndCollapseImageView" destination="BNf-Ea-ED2" id="WaK-Bk-NJ5"/>
+                        <outlet property="menuView" destination="eQt-xf-MBH" id="YRy-Hj-Akh"/>
+                        <outlet property="menuViewBottomContraint" destination="OPN-kH-pwo" id="ZeO-mc-izy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -39,8 +81,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.compact.up" catalog="system" width="128" height="42"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
