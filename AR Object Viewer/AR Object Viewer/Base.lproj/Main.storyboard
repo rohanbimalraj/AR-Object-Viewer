@@ -53,6 +53,10 @@
                                     <constraint firstItem="pl1-wz-1tp" firstAttribute="top" secondItem="BNf-Ea-ED2" secondAttribute="bottom" constant="20" id="S52-rB-3ki"/>
                                     <constraint firstItem="BNf-Ea-ED2" firstAttribute="centerX" secondItem="eQt-xf-MBH" secondAttribute="centerX" id="hX2-5h-4Nq"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="expandAndCollapseImageView" destination="BNf-Ea-ED2" id="rB5-c2-gAT"/>
+                                    <outlet property="menuViewBottomContraint" destination="OPN-kH-pwo" id="jah-Cv-cZt"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="te6-3A-7JU"/>
@@ -70,9 +74,6 @@
                     </view>
                     <connections>
                         <outlet property="arView" destination="pSp-os-WrI" id="7po-Ah-pwF"/>
-                        <outlet property="expandAndCollapseImageView" destination="BNf-Ea-ED2" id="WaK-Bk-NJ5"/>
-                        <outlet property="menuView" destination="eQt-xf-MBH" id="YRy-Hj-Akh"/>
-                        <outlet property="menuViewBottomContraint" destination="OPN-kH-pwo" id="ZeO-mc-izy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

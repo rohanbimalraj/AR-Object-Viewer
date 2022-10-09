@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "scalingcarousel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/superpeteblaze/ScalingCarousel.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "f2bfde4db386243fd4e0e4687fcfff530c239c20"
+      }
+    }
+  ],
+  "version" : 2
+}

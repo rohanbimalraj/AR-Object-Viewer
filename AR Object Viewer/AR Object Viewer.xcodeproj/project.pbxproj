@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C962F3FE28F317C80004F1F3 /* ScalingCarousel in Frameworks */ = {isa = PBXBuildFile; productRef = C962F3FD28F317C80004F1F3 /* ScalingCarousel */; };
 		C96610EC28F1492D0047215D /* MenuUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96610EB28F1492D0047215D /* MenuUIView.swift */; };
 		C9CEA40428EAB62700FADA23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEA40328EAB62700FADA23 /* AppDelegate.swift */; };
 		C9CEA40628EAB62700FADA23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEA40528EAB62700FADA23 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C962F3FE28F317C80004F1F3 /* ScalingCarousel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +100,9 @@
 			dependencies = (
 			);
 			name = "AR Object Viewer";
+			packageProductDependencies = (
+				C962F3FD28F317C80004F1F3 /* ScalingCarousel */,
+			);
 			productName = "AR Object Viewer";
 			productReference = C9CEA40028EAB62700FADA23 /* AR Object Viewer.app */;
 			productType = "com.apple.product-type.application";
@@ -126,6 +131,9 @@
 				Base,
 			);
 			mainGroup = C9CEA3F728EAB62700FADA23;
+			packageReferences = (
+				C962F3FC28F317C80004F1F3 /* XCRemoteSwiftPackageReference "ScalingCarousel" */,
+			);
 			productRefGroup = C9CEA40128EAB62700FADA23 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -380,6 +388,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C962F3FC28F317C80004F1F3 /* XCRemoteSwiftPackageReference "ScalingCarousel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/superpeteblaze/ScalingCarousel.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C962F3FD28F317C80004F1F3 /* ScalingCarousel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C962F3FC28F317C80004F1F3 /* XCRemoteSwiftPackageReference "ScalingCarousel" */;
+			productName = ScalingCarousel;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C9CEA3F828EAB62700FADA23 /* Project object */;
 }
