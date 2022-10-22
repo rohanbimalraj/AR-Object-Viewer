@@ -16,13 +16,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let anchor = AnchorEntity(world: [0,0,-0.5])
-        cancellable = Entity.loadAsync(named: "AirForce")
-            .sink { error in
-                print("Error:",error)
-            } receiveValue: { entity in
-                anchor.addChild(entity)
-                self.arView.scene.addAnchor(anchor)
-                self.cancellable?.cancel()
-            }
+//        cancellable = Entity.loadAsync(named: "AirForce")
+//            .sink { error in
+//                print("Error:",error)
+//            } receiveValue: { entity in
+//                anchor.addChild(entity)
+//                self.arView.scene.addAnchor(anchor)
+//                self.cancellable?.cancel()
+//            }
     }
 }

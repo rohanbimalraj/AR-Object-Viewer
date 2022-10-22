@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,30 +31,62 @@
                                             <constraint firstAttribute="height" constant="52" id="Ugq-BG-ZyY"/>
                                         </constraints>
                                     </imageView>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pl1-wz-1tp">
-                                        <rect key="frame" x="0.0" y="67" width="414" height="200"/>
-                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="GOT-VZ-Wfs"/>
-                                        </constraints>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pl1-wz-1tp" customClass="ScalingCarouselView" customModule="ScalingCarousel">
+                                        <rect key="frame" x="0.0" y="67" width="414" height="201.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WwK-dL-a7Y">
-                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="itemSize" width="171" height="156"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
-                                        <cells/>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CarouselCell" id="2do-Ax-bzg" customClass="CarouselCell" customModule="AR_Object_Viewer" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="23" width="171" height="156"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="R0p-Nv-7o6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="171" height="156"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TzD-Ou-QTH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="171" height="156"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="TzD-Ou-QTH" secondAttribute="bottom" id="NsN-2Z-fFp"/>
+                                                        <constraint firstItem="TzD-Ou-QTH" firstAttribute="leading" secondItem="R0p-Nv-7o6" secondAttribute="leading" id="VCj-OV-Uem"/>
+                                                        <constraint firstItem="TzD-Ou-QTH" firstAttribute="top" secondItem="R0p-Nv-7o6" secondAttribute="top" id="mHR-59-4Y2"/>
+                                                        <constraint firstAttribute="trailing" secondItem="TzD-Ou-QTH" secondAttribute="trailing" id="tGN-zW-sEe"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <size key="customSize" width="171" height="156"/>
+                                                <connections>
+                                                    <outlet property="mainView" destination="R0p-Nv-7o6" id="10J-vT-7CN"/>
+                                                    <outlet property="thumbnailImageView" destination="TzD-Ou-QTH" id="nzJ-mv-Cpy"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                                <real key="value" value="100"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="pl1-wz-1tp" firstAttribute="leading" secondItem="eQt-xf-MBH" secondAttribute="leading" id="Fta-GW-REs"/>
+                                    <constraint firstItem="pl1-wz-1tp" firstAttribute="height" secondItem="eQt-xf-MBH" secondAttribute="height" multiplier="0.5" id="IMQ-yf-aB9"/>
                                     <constraint firstAttribute="trailing" secondItem="pl1-wz-1tp" secondAttribute="trailing" id="OYq-Bi-A0T"/>
                                     <constraint firstItem="BNf-Ea-ED2" firstAttribute="top" secondItem="eQt-xf-MBH" secondAttribute="top" constant="-5" id="RkQ-Mg-QUR"/>
                                     <constraint firstItem="pl1-wz-1tp" firstAttribute="top" secondItem="BNf-Ea-ED2" secondAttribute="bottom" constant="20" id="S52-rB-3ki"/>
                                     <constraint firstItem="BNf-Ea-ED2" firstAttribute="centerX" secondItem="eQt-xf-MBH" secondAttribute="centerX" id="hX2-5h-4Nq"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="carousel" destination="pl1-wz-1tp" id="A0K-6z-sds"/>
                                     <outlet property="expandAndCollapseImageView" destination="BNf-Ea-ED2" id="rB5-c2-gAT"/>
                                     <outlet property="menuViewBottomContraint" destination="OPN-kH-pwo" id="jah-Cv-cZt"/>
                                 </connections>
@@ -85,9 +118,6 @@
         <image name="chevron.compact.up" catalog="system" width="128" height="42"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

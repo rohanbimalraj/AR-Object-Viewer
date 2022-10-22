@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C954FC922903A42B00B95A73 /* ModelNameRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = C954FC912903A42B00B95A73 /* ModelNameRetriever.swift */; };
+		C95EC8D928FA6C0D00F621F1 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EC8D728FA6C0D00F621F1 /* CarouselCell.swift */; };
+		C95EC8DC28FA8E0400F621F1 /* ThumbnailGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EC8DB28FA8E0400F621F1 /* ThumbnailGenerator.swift */; };
 		C962F3FE28F317C80004F1F3 /* ScalingCarousel in Frameworks */ = {isa = PBXBuildFile; productRef = C962F3FD28F317C80004F1F3 /* ScalingCarousel */; };
 		C96610EC28F1492D0047215D /* MenuUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96610EB28F1492D0047215D /* MenuUIView.swift */; };
 		C9CEA40428EAB62700FADA23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEA40328EAB62700FADA23 /* AppDelegate.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C954FC912903A42B00B95A73 /* ModelNameRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNameRetriever.swift; sourceTree = "<group>"; };
+		C95EC8D728FA6C0D00F621F1 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
+		C95EC8DB28FA8E0400F621F1 /* ThumbnailGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailGenerator.swift; sourceTree = "<group>"; };
 		C96610EB28F1492D0047215D /* MenuUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUIView.swift; sourceTree = "<group>"; };
 		C9CEA40028EAB62700FADA23 /* AR Object Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Object Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9CEA40328EAB62700FADA23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +50,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C954FC932903A9B300B95A73 /* Helper classes */ = {
+			isa = PBXGroup;
+			children = (
+				C95EC8DB28FA8E0400F621F1 /* ThumbnailGenerator.swift */,
+				C954FC912903A42B00B95A73 /* ModelNameRetriever.swift */,
+			);
+			path = "Helper classes";
+			sourceTree = "<group>";
+		};
 		C9CEA3F728EAB62700FADA23 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +85,8 @@
 				C9CEA40928EAB62700FADA23 /* Main.storyboard */,
 				C9CEA40C28EAB62800FADA23 /* Assets.xcassets */,
 				C9CEA40E28EAB62800FADA23 /* LaunchScreen.storyboard */,
+				C95EC8D728FA6C0D00F621F1 /* CarouselCell.swift */,
+				C954FC932903A9B300B95A73 /* Helper classes */,
 			);
 			path = "AR Object Viewer";
 			sourceTree = "<group>";
@@ -165,8 +182,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C96610EC28F1492D0047215D /* MenuUIView.swift in Sources */,
+				C954FC922903A42B00B95A73 /* ModelNameRetriever.swift in Sources */,
 				C9CEA40628EAB62700FADA23 /* ViewController.swift in Sources */,
+				C95EC8DC28FA8E0400F621F1 /* ThumbnailGenerator.swift in Sources */,
 				C9CEA40428EAB62700FADA23 /* AppDelegate.swift in Sources */,
+				C95EC8D928FA6C0D00F621F1 /* CarouselCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
