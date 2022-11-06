@@ -14,22 +14,6 @@ class ThumbnailGenerator {
     
     private init() {}
     
-    private func getModelNames() -> [String] {
-        let fileManager = FileManager.default
-        let path = Bundle.main.resourcePath!
-        var modelNames:[String] = []
-        do {
-            let items = try fileManager.contentsOfDirectory(atPath: path)
-            let filterItems = items.filter{$0.contains(".usdz")}
-            modelNames = filterItems.compactMap{
-                let components = $0.components(separatedBy: ".")
-                return components.first
-            }
-        }catch {
-            print("Failed to get directory!!!")
-        }
-        return modelNames
-    }
     
     func getThumbnailsOfModels(modelName:String,completion: @escaping(UIImage) -> ()) {
         
@@ -39,7 +23,7 @@ class ThumbnailGenerator {
             let generator = QLThumbnailGenerator.shared
             generator.generateRepresentations(for: request) { (thumnail, type, error) in
                 if thumnail == nil || error != nil {
-                   print("Error in generating thumbnail")
+                    print("Error in generating thumbnail:\(error?.localizedDescription ?? "UNKNOW")")
                 }else {
                     completion(thumnail!.uiImage)
                 }

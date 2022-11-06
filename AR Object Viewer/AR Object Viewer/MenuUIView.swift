@@ -7,12 +7,16 @@
 
 import UIKit
 import ScalingCarousel
+import UniformTypeIdentifiers
 
 class MenuUIView: UIView {
     
+
     @IBOutlet weak var expandAndCollapseImageView: UIImageView!
     @IBOutlet weak var menuViewBottomContraint: NSLayoutConstraint!
     @IBOutlet weak var carousel: ScalingCarouselView!
+    @IBOutlet weak var addOrRemoveButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
     var isMenuOpen:Bool = false
     var modelNames:[String] = []
 
@@ -29,6 +33,8 @@ class MenuUIView: UIView {
         carousel.inset = 100//CGFloat(CFloat(Int((UIScreen.main.bounds.width - 187)/2)))
         menuViewBottomContraint.constant = -(UIScreen.main.bounds.height * 0.45) + 52
         modelNames = ModelNameRetriever.shared.getModelNames()
+        addOrRemoveButton.layer.cornerRadius = 40/2
+        addButton.layer.cornerRadius = 40/2
         carousel.reloadData()
     }
     
@@ -57,6 +63,9 @@ class MenuUIView: UIView {
         }
     }
 
+    @IBAction func addButtonAction(_ sender: UIButton) {
+        
+    }
 }
 
 extension MenuUIView: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -74,7 +83,6 @@ extension MenuUIView: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.setNeedsLayout()
             cell.layoutIfNeeded()
         }
-        cell.layer.cornerRadius = 20
         return cell
     }
     

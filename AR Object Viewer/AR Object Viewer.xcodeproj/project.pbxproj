@@ -27,6 +27,7 @@
 		C95EC8D728FA6C0D00F621F1 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 		C95EC8DB28FA8E0400F621F1 /* ThumbnailGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailGenerator.swift; sourceTree = "<group>"; };
 		C96610EB28F1492D0047215D /* MenuUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUIView.swift; sourceTree = "<group>"; };
+		C9A53FC42910FEC5003CA659 /* AR-Object-Viewer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AR-Object-Viewer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		C9CEA40028EAB62700FADA23 /* AR Object Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Object Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9CEA40328EAB62700FADA23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9CEA40528EAB62700FADA23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 		C9CEA40228EAB62700FADA23 /* AR Object Viewer */ = {
 			isa = PBXGroup;
 			children = (
+				C9A53FC42910FEC5003CA659 /* AR-Object-Viewer-Info.plist */,
 				C9E1DC7728ED4AC3000CFDC7 /* Models */,
 				C9CEA40328EAB62700FADA23 /* AppDelegate.swift */,
 				C96610EB28F1492D0047215D /* MenuUIView.swift */,
@@ -335,6 +337,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 53C3L492D5;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AR-Object-Viewer-Info.plist";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -343,6 +347,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -365,6 +370,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 53C3L492D5;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AR-Object-Viewer-Info.plist";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -373,6 +380,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
