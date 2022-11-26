@@ -136,7 +136,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="plus" catalog="system"/>
                                         <connections>
-                                            <action selector="addButtonAction:" destination="szl-B8-6FS" eventType="touchUpInside" id="dok-1m-5ZM"/>
+                                            <action selector="addButtonAction:" destination="eQt-xf-MBH" eventType="touchUpInside" id="SLB-cv-68a"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -178,10 +178,10 @@
                     </view>
                     <connections>
                         <outlet property="arView" destination="pSp-os-WrI" id="7po-Ah-pwF"/>
+                        <outlet property="menuView" destination="eQt-xf-MBH" id="dXZ-sf-lBI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="szl-B8-6FS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
         </scene>

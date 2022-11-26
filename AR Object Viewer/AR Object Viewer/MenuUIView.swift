@@ -9,6 +9,10 @@ import UIKit
 import ScalingCarousel
 import UniformTypeIdentifiers
 
+protocol MenuUIViewDelegate: NSObject {
+    func addButtonClicked()
+}
+
 class MenuUIView: UIView {
     
 
@@ -17,6 +21,7 @@ class MenuUIView: UIView {
     @IBOutlet weak var carousel: ScalingCarouselView!
     @IBOutlet weak var addOrRemoveButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
+    weak var delegate: MenuUIViewDelegate? = nil
     var isMenuOpen:Bool = false
     var modelNames:[String] = []
 
@@ -64,7 +69,7 @@ class MenuUIView: UIView {
     }
 
     @IBAction func addButtonAction(_ sender: UIButton) {
-        
+        delegate?.addButtonClicked()
     }
 }
 

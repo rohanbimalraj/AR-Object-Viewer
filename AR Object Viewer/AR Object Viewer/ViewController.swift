@@ -13,10 +13,12 @@ import UniformTypeIdentifiers
 class ViewController: UIViewController {
     
     @IBOutlet var arView: ARView!
+    @IBOutlet weak var menuView: MenuUIView!
     var cancellable:AnyCancellable? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        let anchor = AnchorEntity(world: [0,0,-0.5])
+        menuView.delegate = self
+        //let anchor = AnchorEntity(world: [0,0,-0.5])
 //        cancellable = Entity.loadAsync(named: "AirForce")
 //            .sink { error in
 //                print("Error:",error)
@@ -25,36 +27,33 @@ class ViewController: UIViewController {
 //                self.arView.scene.addAnchor(anchor)
 //                self.cancellable?.cancel()
 //            }
+        if !(LocalFileManager.shared.getValue(for: UserDefaultKeys.FIRST_STARTUP.rawValue) ?? false) {
+            LocalFileManager.shared.createFolderForModels()
+            LocalFileManager.shared.setValue(set: true, for: UserDefaultKeys.FIRST_STARTUP.rawValue)
+        }
+   }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Utility.shared.getRootViewController()
+    }
+}
+extension ViewController: MenuUIViewDelegate {
+    func addButtonClicked() {
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.usdz])
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = true
+        documentPicker.modalPresentationStyle = .overFullScreen
+        self.present(documentPicker, animated: true)
+    }
+}
+
+extension ViewController: UIDocumentPickerDelegate {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         
-//        let fileManager = FileManager.default
-//        guard let url = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {return}
-//        print("Rohan's url:",url)
-//        
-//        let newFolder = url.appendingPathExtension("rohan's - folder")
-//        do {
-//            try  fileManager.createDirectory(at: newFolder, withIntermediateDirectories: true)
-//
-//        }catch {
-//            print("Error occured")
-//        }
-        createFileInDocumentsDirectory()
+        urls.forEach { url in
+            guard url.startAccessingSecurityScopedResource() else {return}
+            LocalFileManager.shared.copyItemToDirectory(from: url)
+        }
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [UTType.usdz])
-//            documentPicker.delegate = self
-//            documentPicker.allowsMultipleSelection = true
-//            present(documentPicker, animated: true, completion: nil)
-//    }
-    
-    func createFileInDocumentsDirectory() {
-        let file = "test.txt"
-        let text = "Hello world"
-
-        let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let fileURL = dir.appendingPathComponent(file)
-        try! text.write(to: fileURL, atomically: false, encoding: .utf8)
-    }
-
 }
