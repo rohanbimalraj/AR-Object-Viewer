@@ -21,6 +21,7 @@
 		C9E1DC7928ED4B9D000CFDC7 /* toy_drummer.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C9E1DC7828ED4B9D000CFDC7 /* toy_drummer.usdz */; };
 		C9E1DC7B28ED4BAC000CFDC7 /* toy_biplane.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C9E1DC7A28ED4BAC000CFDC7 /* toy_biplane.usdz */; };
 		C9E1DC7D28ED4BB7000CFDC7 /* AirForce.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C9E1DC7C28ED4BB7000CFDC7 /* AirForce.usdz */; };
+		C9EBB9CC2960015700A87D43 /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = C9EBB9CB2960015700A87D43 /* FocusEntity */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9EBB9CC2960015700A87D43 /* FocusEntity in Frameworks */,
 				C962F3FE28F317C80004F1F3 /* ScalingCarousel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +134,7 @@
 			name = "AR Object Viewer";
 			packageProductDependencies = (
 				C962F3FD28F317C80004F1F3 /* ScalingCarousel */,
+				C9EBB9CB2960015700A87D43 /* FocusEntity */,
 			);
 			productName = "AR Object Viewer";
 			productReference = C9CEA40028EAB62700FADA23 /* AR Object Viewer.app */;
@@ -163,6 +166,7 @@
 			mainGroup = C9CEA3F728EAB62700FADA23;
 			packageReferences = (
 				C962F3FC28F317C80004F1F3 /* XCRemoteSwiftPackageReference "ScalingCarousel" */,
+				C9EBB9CA2960015700A87D43 /* XCRemoteSwiftPackageReference "FocusEntity" */,
 			);
 			productRefGroup = C9CEA40128EAB62700FADA23 /* Products */;
 			projectDirPath = "";
@@ -438,6 +442,14 @@
 				kind = branch;
 			};
 		};
+		C9EBB9CA2960015700A87D43 /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/FocusEntity";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -445,6 +457,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C962F3FC28F317C80004F1F3 /* XCRemoteSwiftPackageReference "ScalingCarousel" */;
 			productName = ScalingCarousel;
+		};
+		C9EBB9CB2960015700A87D43 /* FocusEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9EBB9CA2960015700A87D43 /* XCRemoteSwiftPackageReference "FocusEntity" */;
+			productName = FocusEntity;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

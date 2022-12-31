@@ -10,6 +10,7 @@ import RealityKit
 import Combine
 import UniformTypeIdentifiers
 import ARKit
+import FocusEntity
 
 class ViewController: UIViewController {
     
@@ -17,21 +18,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var menuView: MenuUIView!
     var cancellable:AnyCancellable? = nil
     let anchor = AnchorEntity(world: [0,0,-0.5])
+    var focusEntity: FocusEntity? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        menuView.delegate = self
-        arView.scene.addAnchor(anchor)
-
+        configure()
         if !(LocalFileManager.shared.getValue(for: UserDefaultKeys.FIRST_STARTUP.rawValue) ?? false) {
             LocalFileManager.shared.createFolderForModels()
             LocalFileManager.shared.setValue(set: true, for: UserDefaultKeys.FIRST_STARTUP.rawValue)
         }
+        menuView.delegate = self
+        arView.scene.addAnchor(anchor)
+        focusEntity = FocusEntity(on: self.arView, focus: .classic)
+        focusEntity?.delegate = self
    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    private func configure() {
+        arView.automaticallyConfigureSession = false
+        let config = ARWorldTrackingConfiguration()
+        config.planeDetection = [.vertical, .horizontal]
+        arView.session.run(config)
     }
-    
 }
 extension ViewController: MenuUIViewDelegate {
     func addOrRemoveButtonClicked(modelName: String) {
@@ -62,5 +67,18 @@ extension ViewController: UIDocumentPickerDelegate {
             guard url.startAccessingSecurityScopedResource() else {return}
             LocalFileManager.shared.copyItemToDirectory(from: url)
         }
+    }
+}
+
+extension ViewController: ARSessionDelegate {
+    func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+        if let plane = anchors.last as? ARPlaneAnchor {
+            print("Rohan's test:", plane.classification)
+        }
+    }
+}
+
+extension ViewController: FocusEntityDelegate {
+    func focusEntity(_ focusEntity: FocusEntity, trackingUpdated trackingState: FocusEntity.State, oldState: FocusEntity.State) {
     }
 }

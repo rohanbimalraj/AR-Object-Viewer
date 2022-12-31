@@ -39,10 +39,12 @@ class MenuUIView: UIView {
         setUpTapGesture()
         carousel.inset = 100//CGFloat(CFloat(Int((UIScreen.main.bounds.width - 187)/2)))
         menuViewBottomContraint.constant = -(UIScreen.main.bounds.height * 0.45) + 52
-        modelNames = LocalFileManager.shared.getItemNamesInDirectory() ?? []
         addOrRemoveButton.layer.cornerRadius = 40/2
         addButton.layer.cornerRadius = 40/2
-        carousel.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.modelNames = LocalFileManager.shared.getItemNamesInDirectory() ?? []
+            self.carousel.reloadData()
+        }
     }
     
     func setUpTapGesture() {
@@ -71,7 +73,6 @@ class MenuUIView: UIView {
     }
 
     @IBAction func addOrRemoveButtonClicked(_ sender: UIButton) {
-        print("Rohan's test")
         delegate?.addOrRemoveButtonClicked(modelName: modelNames[currntItemIndex])
     }
     @IBAction func addButtonAction(_ sender: UIButton) {
