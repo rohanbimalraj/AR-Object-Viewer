@@ -35,10 +35,10 @@ class LocalFileManager {
         do {
             try FileManager.default.createDirectory(at: folderUrl, withIntermediateDirectories: true, attributes: nil)
             copyItemsFromBundleToDirectory(fileExtension: ".usdz")
-            deleteItem(from: "AirForce.usdz")
-
+            
         }catch(let error) {
-            print("Rohan's error",error)
+            Utility.shared.showAlert(message: ApplicationError.FOLDER_CREATION_FAILED.localizedDescription)
+            print("ERROR:",error)
         }
     }
     
@@ -58,25 +58,25 @@ class LocalFileManager {
                 try FileManager.default.removeItem(at: itemPath)
             }
         }catch(let error) {
-            print("Rohan's error:",error)
+            Utility.shared.showAlert(message: ApplicationError.FAILED_TO_DELETE.localizedDescription)
+            print("ERROR:",error)
         }
     }
     
     func copyItemToDirectory(from url:URL) {
-        print("Rohan's test one:",url)
         if let destinationUrl = modelFolderUrl?.appendingPathComponent(url.lastPathComponent) {
-            print("Rohan's test one:",destinationUrl)
             if FileManager.default.fileExists(atPath: destinationUrl.path) {
-                print("File already exist")
+                Utility.shared.showAlert(message: ApplicationError.FILE_ALREADY_EXIST.localizedDescription)
             }else {
                 do {
                     try FileManager.default.copyItem(at: url, to: destinationUrl)
                 }catch {
-                    print("Rohan's error:",error.localizedDescription)
+                    Utility.shared.showAlert(message: ApplicationError.FAILED_TO_COPY_ITEMS.localizedDescription)
+                    print("ERROR:",error.localizedDescription)
                 }
             }
         }else {
-            print("Rohan's error:","BAD URL!!!")
+            print("ERROR:","BAD URL!!!")
         }
     }
     
@@ -87,10 +87,15 @@ class LocalFileManager {
                 let filteredFiles = dirContents.filter{ $0.contains(".usdz")}
                 return filteredFiles
             }catch(let error) {
-                print("Rohan's error:",error)
+                Utility.shared.showAlert(message: ApplicationError.FAILED_TO_GET_ITEM.localizedDescription)
+                print("ERROR:",error)
             }
         }
         return nil
+    }
+    
+    func getModelUrl(name: String) -> URL? {
+        modelFolderUrl?.appendingPathComponent(name)
     }
     
     func registerKeys() {

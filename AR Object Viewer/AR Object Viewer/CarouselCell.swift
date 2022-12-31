@@ -16,7 +16,7 @@ class CarouselCell: ScalingCarouselCell {
     @IBOutlet weak var shadowView: UIView!
     var modelName:String? {
         didSet {
-             ThumbnailGenerator.shared.getThumbnailsOfModels(modelName: modelName!, completion: { image in
+             Utility.shared.getThumbnailsOfModels(modelName: modelName!, completion: { image in
                  DispatchQueue.main.async {
                      self.thumbnailImageView.image = image
                  }

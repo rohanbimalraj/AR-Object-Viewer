@@ -11,6 +11,7 @@ import UniformTypeIdentifiers
 
 protocol MenuUIViewDelegate: NSObject {
     func addButtonClicked()
+    func addOrRemoveButtonClicked(modelName: String)
 }
 
 class MenuUIView: UIView {
@@ -24,6 +25,7 @@ class MenuUIView: UIView {
     weak var delegate: MenuUIViewDelegate? = nil
     var isMenuOpen:Bool = false
     var modelNames:[String] = []
+    private var currntItemIndex = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,7 +39,7 @@ class MenuUIView: UIView {
         setUpTapGesture()
         carousel.inset = 100//CGFloat(CFloat(Int((UIScreen.main.bounds.width - 187)/2)))
         menuViewBottomContraint.constant = -(UIScreen.main.bounds.height * 0.45) + 52
-        modelNames = ModelNameRetriever.shared.getModelNames()
+        modelNames = LocalFileManager.shared.getItemNamesInDirectory() ?? []
         addOrRemoveButton.layer.cornerRadius = 40/2
         addButton.layer.cornerRadius = 40/2
         carousel.reloadData()
@@ -68,6 +70,10 @@ class MenuUIView: UIView {
         }
     }
 
+    @IBAction func addOrRemoveButtonClicked(_ sender: UIButton) {
+        print("Rohan's test")
+        delegate?.addOrRemoveButtonClicked(modelName: modelNames[currntItemIndex])
+    }
     @IBAction func addButtonAction(_ sender: UIButton) {
         delegate?.addButtonClicked()
     }
@@ -93,6 +99,7 @@ extension MenuUIView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         carousel.didScroll()
+        currntItemIndex = carousel.currentCenterCellIndex?.row ?? 0
     }
     
 }

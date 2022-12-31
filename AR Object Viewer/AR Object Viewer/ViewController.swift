@@ -9,24 +9,19 @@ import UIKit
 import RealityKit
 import Combine
 import UniformTypeIdentifiers
+import ARKit
 
 class ViewController: UIViewController {
     
     @IBOutlet var arView: ARView!
     @IBOutlet weak var menuView: MenuUIView!
     var cancellable:AnyCancellable? = nil
+    let anchor = AnchorEntity(world: [0,0,-0.5])
     override func viewDidLoad() {
         super.viewDidLoad()
         menuView.delegate = self
-        //let anchor = AnchorEntity(world: [0,0,-0.5])
-//        cancellable = Entity.loadAsync(named: "AirForce")
-//            .sink { error in
-//                print("Error:",error)
-//            } receiveValue: { entity in
-//                anchor.addChild(entity)
-//                self.arView.scene.addAnchor(anchor)
-//                self.cancellable?.cancel()
-//            }
+        arView.scene.addAnchor(anchor)
+
         if !(LocalFileManager.shared.getValue(for: UserDefaultKeys.FIRST_STARTUP.rawValue) ?? false) {
             LocalFileManager.shared.createFolderForModels()
             LocalFileManager.shared.setValue(set: true, for: UserDefaultKeys.FIRST_STARTUP.rawValue)
@@ -35,10 +30,22 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        Utility.shared.getRootViewController()
     }
+    
 }
 extension ViewController: MenuUIViewDelegate {
+    func addOrRemoveButtonClicked(modelName: String) {
+        guard let url = LocalFileManager.shared.getModelUrl(name: modelName) else {return}
+        cancellable = Entity.loadAsync(contentsOf: url)
+            .sink { error in
+                print("Error:",error)
+            } receiveValue: { entity in
+                
+                self.anchor.addChild(entity)
+                self.cancellable?.cancel()
+            }
+    }
+    
     func addButtonClicked() {
         let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.usdz])
         documentPicker.delegate = self
