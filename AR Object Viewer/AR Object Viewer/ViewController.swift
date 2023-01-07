@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     var cancellable:AnyCancellable? = nil
     let anchor = AnchorEntity(world: [0,0,-0.5])
     var focusEntity: FocusEntity? = nil
+    private var modelName: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -29,7 +30,7 @@ class ViewController: UIViewController {
         menuView.delegate = self
         arView.scene.addAnchor(anchor)
         focusEntity = FocusEntity(on: self.arView, focus: .classic)
-        focusEntity?.delegate = self
+        enableTapGesture()
    }
     private func configure() {
         arView.automaticallyConfigureSession = false
@@ -37,18 +38,45 @@ class ViewController: UIViewController {
         config.planeDetection = [.vertical, .horizontal]
         arView.session.run(config)
     }
-}
-extension ViewController: MenuUIViewDelegate {
-    func addOrRemoveButtonClicked(modelName: String) {
+    
+    private func enableTapGesture() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
+        self.arView.addGestureRecognizer(gesture)
+        self.arView.isUserInteractionEnabled = false
+    }
+    
+    @objc func handleTap(recognizer: UITapGestureRecognizer) {
+        print("Rohan's tap")
+        let tapLocation = recognizer.location(in: self.arView)
+        let results = self.arView.raycast(from: tapLocation, allowing: .estimatedPlane, alignment: .any)
+        if let firstResult = results.first {
+            let position = simd_make_float3(firstResult.worldTransform.columns.3)
+            loadModel(at: position)
+        }else {
+            
+        }
+    }
+    
+    private func loadModel(at position: SIMD3<Float>) {
         guard let url = LocalFileManager.shared.getModelUrl(name: modelName) else {return}
         cancellable = Entity.loadAsync(contentsOf: url)
             .sink { error in
                 print("Error:",error)
             } receiveValue: { entity in
                 
-                self.anchor.addChild(entity)
+                let anchor = AnchorEntity(world: position)
+                self.arView.scene.addAnchor(anchor)
+                anchor.addChild(entity)
+                anchor.name = self.modelName
                 self.cancellable?.cancel()
             }
+    }
+}
+extension ViewController: MenuUIViewDelegate {
+    func addOrRemoveButtonClicked(modelName: String) {
+        
+        self.modelName = modelName
+        self.arView.isUserInteractionEnabled = true
     }
     
     func addButtonClicked() {
@@ -67,18 +95,5 @@ extension ViewController: UIDocumentPickerDelegate {
             guard url.startAccessingSecurityScopedResource() else {return}
             LocalFileManager.shared.copyItemToDirectory(from: url)
         }
-    }
-}
-
-extension ViewController: ARSessionDelegate {
-    func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
-        if let plane = anchors.last as? ARPlaneAnchor {
-            print("Rohan's test:", plane.classification)
-        }
-    }
-}
-
-extension ViewController: FocusEntityDelegate {
-    func focusEntity(_ focusEntity: FocusEntity, trackingUpdated trackingState: FocusEntity.State, oldState: FocusEntity.State) {
     }
 }
