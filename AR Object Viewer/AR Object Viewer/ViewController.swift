@@ -14,6 +14,7 @@ import FocusEntity
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet var arView: ARView!
     @IBOutlet weak var menuView: MenuUIView!
     var cancellable:AnyCancellable? = nil
@@ -30,7 +31,10 @@ class ViewController: UIViewController {
         menuView.delegate = self
         arView.scene.addAnchor(anchor)
         focusEntity = FocusEntity(on: self.arView, focus: .classic)
+        focusEntity?.isEnabled = false
         enableTapGesture()
+        messageLabel.isHidden = true
+        messageLabel.layer.cornerRadius = 5
    }
     private func configure() {
         arView.automaticallyConfigureSession = false
@@ -46,7 +50,6 @@ class ViewController: UIViewController {
     }
     
     @objc func handleTap(recognizer: UITapGestureRecognizer) {
-        print("Rohan's tap")
         let tapLocation = recognizer.location(in: self.arView)
         let results = self.arView.raycast(from: tapLocation, allowing: .estimatedPlane, alignment: .any)
         if let firstResult = results.first {
@@ -68,6 +71,7 @@ class ViewController: UIViewController {
                 self.arView.scene.addAnchor(anchor)
                 anchor.addChild(entity)
                 anchor.name = self.modelName
+                self.focusEntity?.isEnabled = false
                 self.cancellable?.cancel()
             }
     }
@@ -76,6 +80,7 @@ extension ViewController: MenuUIViewDelegate {
     func addOrRemoveButtonClicked(modelName: String) {
         
         self.modelName = modelName
+        self.focusEntity?.isEnabled = true
         self.arView.isUserInteractionEnabled = true
     }
     

@@ -73,7 +73,11 @@ class MenuUIView: UIView {
     }
 
     @IBAction func addOrRemoveButtonClicked(_ sender: UIButton) {
-        delegate?.addOrRemoveButtonClicked(modelName: modelNames[currntItemIndex])
+        onTapped()
+        Timer.scheduledTimer(withTimeInterval: 0.85, repeats: false) { timer in
+            self.delegate?.addOrRemoveButtonClicked(modelName: self.modelNames[self.currntItemIndex])
+            timer.invalidate()
+        }
     }
     @IBAction func addButtonAction(_ sender: UIButton) {
         delegate?.addButtonClicked()
