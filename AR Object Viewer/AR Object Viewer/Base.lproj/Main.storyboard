@@ -78,6 +78,9 @@
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" image="play.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="playButtonAction:" destination="2do-Ax-bzg" eventType="touchUpInside" id="mGr-jX-JU0"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -165,37 +168,51 @@
                                     <outlet property="menuViewBottomContraint" destination="OPN-kH-pwo" id="jah-Cv-cZt"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once plane is detected tap the position where you wanna place the model." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7B-id-Lap">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7YH-27-B4g">
                                 <rect key="frame" x="20" y="433" width="374" height="50"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.60483099489795922" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once plane is detected tap the position where you wanna place the model." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7B-id-Lap">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="jao-bG-DCD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="0.60483099490000003" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="jao-bG-DCD"/>
+                                    <constraint firstAttribute="height" constant="50" id="4nB-Z8-XQS"/>
+                                    <constraint firstItem="h7B-id-Lap" firstAttribute="top" secondItem="7YH-27-B4g" secondAttribute="top" id="IWD-5v-0tT"/>
+                                    <constraint firstAttribute="bottom" secondItem="h7B-id-Lap" secondAttribute="bottom" id="JKu-yv-0Yd"/>
+                                    <constraint firstAttribute="trailing" secondItem="h7B-id-Lap" secondAttribute="trailing" id="Yj3-39-fEb"/>
+                                    <constraint firstItem="h7B-id-Lap" firstAttribute="leading" secondItem="7YH-27-B4g" secondAttribute="leading" id="aiH-Wt-Ghp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="te6-3A-7JU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="eQt-xf-MBH" firstAttribute="top" secondItem="h7B-id-Lap" secondAttribute="bottom" constant="10" id="4gd-y3-fVY"/>
                             <constraint firstAttribute="bottom" secondItem="pSp-os-WrI" secondAttribute="bottom" id="8mg-j4-J7P"/>
+                            <constraint firstItem="eQt-xf-MBH" firstAttribute="top" secondItem="7YH-27-B4g" secondAttribute="bottom" constant="10" id="CgZ-Dx-1us"/>
                             <constraint firstItem="eQt-xf-MBH" firstAttribute="trailing" secondItem="te6-3A-7JU" secondAttribute="trailing" id="DXq-TZ-dOC"/>
                             <constraint firstItem="pSp-os-WrI" firstAttribute="trailing" secondItem="te6-3A-7JU" secondAttribute="trailing" id="Dew-ij-Zka"/>
-                            <constraint firstItem="h7B-id-Lap" firstAttribute="leading" secondItem="te6-3A-7JU" secondAttribute="leading" constant="20" id="FLe-FG-KwV"/>
                             <constraint firstItem="eQt-xf-MBH" firstAttribute="height" secondItem="KIu-QG-Uu5" secondAttribute="height" multiplier="0.45" id="NLA-6r-vgp"/>
                             <constraint firstAttribute="bottom" secondItem="eQt-xf-MBH" secondAttribute="bottom" id="OPN-kH-pwo"/>
                             <constraint firstItem="eQt-xf-MBH" firstAttribute="leading" secondItem="te6-3A-7JU" secondAttribute="leading" id="QLn-Hs-hrB"/>
                             <constraint firstItem="pSp-os-WrI" firstAttribute="top" secondItem="KIu-QG-Uu5" secondAttribute="top" id="TeA-J3-rxO"/>
+                            <constraint firstItem="7YH-27-B4g" firstAttribute="leading" secondItem="te6-3A-7JU" secondAttribute="leading" constant="20" id="UGJ-PX-wDi"/>
                             <constraint firstItem="pSp-os-WrI" firstAttribute="leading" secondItem="te6-3A-7JU" secondAttribute="leading" id="crn-i1-aSi"/>
-                            <constraint firstItem="te6-3A-7JU" firstAttribute="trailing" secondItem="h7B-id-Lap" secondAttribute="trailing" constant="20" id="zFS-VZ-q3P"/>
+                            <constraint firstItem="te6-3A-7JU" firstAttribute="trailing" secondItem="7YH-27-B4g" secondAttribute="trailing" constant="20" id="hU5-nv-28l"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="arView" destination="pSp-os-WrI" id="7po-Ah-pwF"/>
                         <outlet property="menuView" destination="eQt-xf-MBH" id="dXZ-sf-lBI"/>
                         <outlet property="messageLabel" destination="h7B-id-Lap" id="AFx-O3-i9f"/>
+                        <outlet property="messageView" destination="7YH-27-B4g" id="m7N-am-naR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

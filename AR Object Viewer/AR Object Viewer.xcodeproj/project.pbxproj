@@ -12,6 +12,7 @@
 		C95EC8D928FA6C0D00F621F1 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EC8D728FA6C0D00F621F1 /* CarouselCell.swift */; };
 		C962F3FE28F317C80004F1F3 /* ScalingCarousel in Frameworks */ = {isa = PBXBuildFile; productRef = C962F3FD28F317C80004F1F3 /* ScalingCarousel */; };
 		C96610EC28F1492D0047215D /* MenuUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96610EB28F1492D0047215D /* MenuUIView.swift */; };
+		C9661AA729A2027800AAFAD3 /* ARModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9661AA629A2027800AAFAD3 /* ARModel.swift */; };
 		C977DFB7294D77D400935A78 /* ApplicationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C977DFB6294D77D400935A78 /* ApplicationError.swift */; };
 		C9CEA40428EAB62700FADA23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEA40328EAB62700FADA23 /* AppDelegate.swift */; };
 		C9CEA40628EAB62700FADA23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEA40528EAB62700FADA23 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 		C94191DF29323BB7004C9CBF /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		C95EC8D728FA6C0D00F621F1 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 		C96610EB28F1492D0047215D /* MenuUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUIView.swift; sourceTree = "<group>"; };
+		C9661AA629A2027800AAFAD3 /* ARModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARModel.swift; sourceTree = "<group>"; };
 		C977DFB6294D77D400935A78 /* ApplicationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationError.swift; sourceTree = "<group>"; };
 		C9A53FC42910FEC5003CA659 /* AR-Object-Viewer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AR-Object-Viewer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		C9CEA40028EAB62700FADA23 /* AR Object Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Object Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,7 @@
 				C9CEA40E28EAB62800FADA23 /* LaunchScreen.storyboard */,
 				C95EC8D728FA6C0D00F621F1 /* CarouselCell.swift */,
 				C954FC932903A9B300B95A73 /* Helper classes */,
+				C9661AA629A2027800AAFAD3 /* ARModel.swift */,
 			);
 			path = "AR Object Viewer";
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				C9CEA40628EAB62700FADA23 /* ViewController.swift in Sources */,
 				C94191E029323BB7004C9CBF /* Utility.swift in Sources */,
 				C9CEA40428EAB62700FADA23 /* AppDelegate.swift in Sources */,
+				C9661AA729A2027800AAFAD3 /* ARModel.swift in Sources */,
 				C95EC8D928FA6C0D00F621F1 /* CarouselCell.swift in Sources */,
 				C931657D29178797006AE577 /* LocalFileManager.swift in Sources */,
 				C977DFB7294D77D400935A78 /* ApplicationError.swift in Sources */,

@@ -11,7 +11,7 @@ import UniformTypeIdentifiers
 
 protocol MenuUIViewDelegate: NSObject {
     func addButtonClicked()
-    func addOrRemoveButtonClicked(modelName: String)
+    func addOrRemoveButtonClicked(model: ARModel)
 }
 
 class MenuUIView: UIView {
@@ -23,8 +23,9 @@ class MenuUIView: UIView {
     @IBOutlet weak var addOrRemoveButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     weak var delegate: MenuUIViewDelegate? = nil
-    var isMenuOpen:Bool = false
-    var modelNames:[String] = []
+    var isMenuOpen: Bool = false
+    //var modelNames: [String] = []
+    var models: [ARModel] = []
     private var currntItemIndex = 0
 
     override func awakeFromNib() {
@@ -42,7 +43,11 @@ class MenuUIView: UIView {
         addOrRemoveButton.layer.cornerRadius = 40/2
         addButton.layer.cornerRadius = 40/2
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.modelNames = LocalFileManager.shared.getItemNamesInDirectory() ?? []
+            let modelNames = LocalFileManager.shared.getItemNamesInDirectory() ?? []
+            modelNames.forEach { [weak self] name in
+                let model = ARModel(name: name)
+                self?.models.append(model)
+            }
             self.carousel.reloadData()
         }
     }
@@ -67,15 +72,24 @@ class MenuUIView: UIView {
                 self.expandAndCollapseImageView.transform = CGAffineTransform(rotationAngle: .pi)
             }
         }completion: { _ in
+            self.setTitleForAddOrRemoveButton()
             self.isMenuOpen.toggle()
-            self.expandAndCollapseImageView.isUserInteractionEnabled = true
+            self.expandAndCollapseImageView.isUserInteractionEnabled = true            
+        }
+    }
+    
+    private func setTitleForAddOrRemoveButton() {
+        if self.models[currntItemIndex].inScene {
+            addOrRemoveButton.setTitle("Remove", for: .normal)
+        }else {
+            addOrRemoveButton.setTitle("Add", for: .normal)
         }
     }
 
     @IBAction func addOrRemoveButtonClicked(_ sender: UIButton) {
         onTapped()
         Timer.scheduledTimer(withTimeInterval: 0.85, repeats: false) { timer in
-            self.delegate?.addOrRemoveButtonClicked(modelName: self.modelNames[self.currntItemIndex])
+            self.delegate?.addOrRemoveButtonClicked(model: self.models[self.currntItemIndex])
             timer.invalidate()
         }
     }
@@ -89,12 +103,12 @@ extension MenuUIView: UICollectionViewDelegate, UICollectionViewDataSource {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return modelNames.count
+        return models.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCell", for: indexPath) as! CarouselCell
-        cell.modelName = modelNames[indexPath.row]
+        cell.model = models[indexPath.row]
         DispatchQueue.main.async {
             cell.setNeedsLayout()
             cell.layoutIfNeeded()
@@ -105,6 +119,7 @@ extension MenuUIView: UICollectionViewDelegate, UICollectionViewDataSource {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         carousel.didScroll()
         currntItemIndex = carousel.currentCenterCellIndex?.row ?? 0
+        setTitleForAddOrRemoveButton()
     }
     
 }
