@@ -52,9 +52,9 @@ class LocalFileManager {
         }
     }
     
-    func deleteItem(from url:String) {
+    func deleteItem(with name:String) {
         do {
-            if let itemPath = modelFolderUrl?.appendingPathComponent(url) {
+            if let itemPath = modelFolderUrl?.appendingPathComponent(name) {
                 try FileManager.default.removeItem(at: itemPath)
             }
         }catch(let error) {

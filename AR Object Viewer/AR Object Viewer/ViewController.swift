@@ -145,7 +145,10 @@ extension ViewController: UIDocumentPickerDelegate {
         
         urls.forEach { url in
             guard url.startAccessingSecurityScopedResource() else {return}
+            print("Rohan's test:", url.lastPathComponent)
+            menuView.addNewModel(name: url.lastPathComponent)
             LocalFileManager.shared.copyItemToDirectory(from: url)
+
         }
     }
 }

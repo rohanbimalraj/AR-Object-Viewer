@@ -23,12 +23,7 @@ class ARModel {
         }
     }
     var isPlaying: Bool = false
-    var model: Entity? = nil {
-        didSet {
-            guard model != nil else { return }
-            NotificationCenter.default.post(name: Notification.Name(name), object: nil)
-        }
-    }
+    var model: Entity? = nil
     var anchor: AnchorEntity? = nil
     
     init(name: String, isPlaying: Bool = false, model: ModelEntity? = nil, anchor: AnchorEntity? = nil) {
