@@ -41,6 +41,7 @@ class MenuUIView: UIView {
         carousel.delegate = self
         carousel.dataSource = self
         setUpTapGesture()
+        deleteButton.isHidden = true
         carousel.inset = 100//CGFloat(CFloat(Int((UIScreen.main.bounds.width - 187)/2)))
         menuViewBottomContraint.constant = -(UIScreen.main.bounds.height * 0.45) + 52
         addOrRemoveButton.layer.cornerRadius = 40/2
