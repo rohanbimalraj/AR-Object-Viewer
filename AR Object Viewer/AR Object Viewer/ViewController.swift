@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     var focusEntity: FocusEntity? = nil
     private var model: ARModel? = nil
     private var tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+    private let imageSaver = ImageSaver()
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -101,6 +102,30 @@ class ViewController: UIViewController {
         animation.subtype = .fromTop
         animation.duration = TimeInterval(0.5)
         self.messageLabel.layer.add(animation, forKey: CATransitionType.push.rawValue)
+    }
+    
+    @IBAction func cameraButtonAction(_ sender: UIButton) {
+        arView.snapshot(saveToHDR: false) { image in
+            let compressedImage = UIImage(data: (image?.pngData())!)
+            self.imageSaver.didSaveImage = {
+                self.onImageSavedToPhotos()
+            }
+            self.imageSaver.writeToPhotoAlbum(image: compressedImage!)
+        }
+    }
+    
+    private func onImageSavedToPhotos() {
+        self.messageLabel.text = "Image sucessfully saved to photos"
+        UIView.transition(with: self.messageView, duration: 0.4,
+                          options: .transitionCrossDissolve,
+                          animations: {
+            self.messageView.isHidden = false
+        }) { _ in
+            Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
+                self.messageView.isHidden = true
+                timer.invalidate()
+            }
+        }
     }
 }
 extension ViewController: MenuUIViewDelegate {

@@ -118,7 +118,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPF-Zg-uNV">
-                                                <rect key="frame" x="176" y="19.5" width="38" height="38"/>
+                                                <rect key="frame" x="206" y="19.5" width="38" height="38"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="38" id="F3b-GA-GA7"/>
@@ -132,7 +132,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3e-4a-IPr">
-                                                <rect key="frame" x="60" y="19.5" width="38" height="38"/>
+                                                <rect key="frame" x="30" y="19.5" width="38" height="38"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="38" id="fAX-br-OfQ"/>
@@ -148,13 +148,13 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="C3e-4a-IPr" firstAttribute="leading" secondItem="bCG-KK-vDt" secondAttribute="leading" constant="60" id="NIt-us-LdJ"/>
+                                            <constraint firstItem="C3e-4a-IPr" firstAttribute="leading" secondItem="bCG-KK-vDt" secondAttribute="leading" constant="30" id="NIt-us-LdJ"/>
                                             <constraint firstAttribute="bottom" secondItem="z0h-mf-B7v" secondAttribute="bottom" constant="20" id="Nce-72-is6"/>
                                             <constraint firstAttribute="trailing" secondItem="z0h-mf-B7v" secondAttribute="trailing" constant="22" id="e6u-Wr-HO6"/>
                                             <constraint firstItem="z0h-mf-B7v" firstAttribute="leading" secondItem="bCG-KK-vDt" secondAttribute="leading" constant="22" id="egT-w0-KwX"/>
                                             <constraint firstItem="z0h-mf-B7v" firstAttribute="top" secondItem="C3e-4a-IPr" secondAttribute="bottom" constant="7" id="h4j-C5-wqt"/>
                                             <constraint firstItem="z0h-mf-B7v" firstAttribute="top" secondItem="uPF-Zg-uNV" secondAttribute="bottom" constant="7" id="hKF-is-FTd"/>
-                                            <constraint firstAttribute="trailing" secondItem="uPF-Zg-uNV" secondAttribute="trailing" constant="60" id="x7d-tL-UsZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="uPF-Zg-uNV" secondAttribute="trailing" constant="30" id="x7d-tL-UsZ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -207,6 +207,25 @@
                                     <constraint firstItem="h7B-id-Lap" firstAttribute="leading" secondItem="7YH-27-B4g" secondAttribute="leading" id="aiH-Wt-Ghp"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1Y-8k-qAJ">
+                                <rect key="frame" x="344" y="68" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Dg9-AY-w0t"/>
+                                    <constraint firstAttribute="height" constant="50" id="Ju1-iw-CDX"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="camera.fill" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cameraButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W9x-2i-Bcp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="te6-3A-7JU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -215,6 +234,7 @@
                             <constraint firstItem="eQt-xf-MBH" firstAttribute="top" secondItem="7YH-27-B4g" secondAttribute="bottom" constant="10" id="CgZ-Dx-1us"/>
                             <constraint firstItem="eQt-xf-MBH" firstAttribute="trailing" secondItem="te6-3A-7JU" secondAttribute="trailing" id="DXq-TZ-dOC"/>
                             <constraint firstItem="pSp-os-WrI" firstAttribute="trailing" secondItem="te6-3A-7JU" secondAttribute="trailing" id="Dew-ij-Zka"/>
+                            <constraint firstItem="Z1Y-8k-qAJ" firstAttribute="top" secondItem="te6-3A-7JU" secondAttribute="top" constant="20" id="JnS-Ha-mjR"/>
                             <constraint firstItem="eQt-xf-MBH" firstAttribute="height" secondItem="KIu-QG-Uu5" secondAttribute="height" multiplier="0.45" id="NLA-6r-vgp"/>
                             <constraint firstAttribute="bottom" secondItem="eQt-xf-MBH" secondAttribute="bottom" id="OPN-kH-pwo"/>
                             <constraint firstItem="eQt-xf-MBH" firstAttribute="leading" secondItem="te6-3A-7JU" secondAttribute="leading" id="QLn-Hs-hrB"/>
@@ -222,6 +242,7 @@
                             <constraint firstItem="7YH-27-B4g" firstAttribute="leading" secondItem="te6-3A-7JU" secondAttribute="leading" constant="20" id="UGJ-PX-wDi"/>
                             <constraint firstItem="pSp-os-WrI" firstAttribute="leading" secondItem="te6-3A-7JU" secondAttribute="leading" id="crn-i1-aSi"/>
                             <constraint firstItem="te6-3A-7JU" firstAttribute="trailing" secondItem="7YH-27-B4g" secondAttribute="trailing" constant="20" id="hU5-nv-28l"/>
+                            <constraint firstItem="te6-3A-7JU" firstAttribute="trailing" secondItem="Z1Y-8k-qAJ" secondAttribute="trailing" constant="20" id="mJi-cL-lEy"/>
                         </constraints>
                     </view>
                     <connections>
@@ -237,6 +258,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera.fill" catalog="system" width="128" height="93"/>
         <image name="chevron.compact.up" catalog="system" width="128" height="42"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>

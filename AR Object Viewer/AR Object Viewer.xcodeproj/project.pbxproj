@@ -14,6 +14,7 @@
 		C96610EC28F1492D0047215D /* MenuUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96610EB28F1492D0047215D /* MenuUIView.swift */; };
 		C9661AA729A2027800AAFAD3 /* ARModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9661AA629A2027800AAFAD3 /* ARModel.swift */; };
 		C977DFB7294D77D400935A78 /* ApplicationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C977DFB6294D77D400935A78 /* ApplicationError.swift */; };
+		C9CAB45529BC5AAE004DC3D5 /* Image Saver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CAB45429BC5AAE004DC3D5 /* Image Saver.swift */; };
 		C9CEA40428EAB62700FADA23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEA40328EAB62700FADA23 /* AppDelegate.swift */; };
 		C9CEA40628EAB62700FADA23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEA40528EAB62700FADA23 /* ViewController.swift */; };
 		C9CEA40B28EAB62700FADA23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9CEA40928EAB62700FADA23 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		C9661AA629A2027800AAFAD3 /* ARModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARModel.swift; sourceTree = "<group>"; };
 		C977DFB6294D77D400935A78 /* ApplicationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationError.swift; sourceTree = "<group>"; };
 		C9A53FC42910FEC5003CA659 /* AR-Object-Viewer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AR-Object-Viewer-Info.plist"; sourceTree = SOURCE_ROOT; };
+		C9CAB45429BC5AAE004DC3D5 /* Image Saver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image Saver.swift"; sourceTree = "<group>"; };
 		C9CEA40028EAB62700FADA23 /* AR Object Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Object Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9CEA40328EAB62700FADA23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9CEA40528EAB62700FADA23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				C94191DF29323BB7004C9CBF /* Utility.swift */,
+				C9CAB45429BC5AAE004DC3D5 /* Image Saver.swift */,
 			);
 			path = "Helper classes";
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9CAB45529BC5AAE004DC3D5 /* Image Saver.swift in Sources */,
 				C96610EC28F1492D0047215D /* MenuUIView.swift in Sources */,
 				C9CEA40628EAB62700FADA23 /* ViewController.swift in Sources */,
 				C94191E029323BB7004C9CBF /* Utility.swift in Sources */,
@@ -360,6 +364,8 @@
 				INFOPLIST_FILE = "AR-Object-Viewer-Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Required to save AR Pictures in Photo Library";
+				INFOPLIST_KEY_NSRemindersUsageDescription = "Required to save AR Pictures in Photo Library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -393,6 +399,8 @@
 				INFOPLIST_FILE = "AR-Object-Viewer-Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Required to save AR Pictures in Photo Library";
+				INFOPLIST_KEY_NSRemindersUsageDescription = "Required to save AR Pictures in Photo Library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
